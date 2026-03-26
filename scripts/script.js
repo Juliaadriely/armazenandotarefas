@@ -102,3 +102,4 @@ carregartrefas();
 // // i < listaTeste.length -> validar se o i e menor que tamanho da lista
 
 // for(let i = 0; i< listaTeste )
+//Teste
