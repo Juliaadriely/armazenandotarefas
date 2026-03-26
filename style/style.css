@@ -50,4 +50,9 @@ li {
 
     display: flex;
     justify-content: space-between; /*coloca espaço entre os elementos*/
+    align-items: center;
+}
+
+#lista-tarefas {
+    padding: 0;
 }
