@@ -24,8 +24,77 @@ function mostrartarefas() {
         const li = document.createElement("li");
         li.innerText = tarefas [i]
 
+        const botaoremover = document.createElement("button");
+        botaoremover.innerText = "🗑️"
+        botaoremover.className = "botaoremover";
+
+
+        botaoremover.addEventListener("click", () => {
+            removerTarefas(i);
+        })
+
+        li.appendChild(botaoremover);
+        listatarefas.appendChild(li);
     }
 }
+
+function removerTarefas(posicaotarefa) {
+    // splice ->(posiçãoInicial, qtde_itens)
+    tarefas.splice(posicaotarefa, 1)
+
+    //depois de remover, chamo a função de salvar no localStorage
+    salvartarefas();
+
+    //mostra as tarefas atualizadas, sem as que foram removidas.
+    mostrartarefas();
+}
+
+
+//função para adicionar tarefas
+function adicionartarefas() {
+    const valortarefa = inputtarefa.value;
+
+    if(valortarefa === ""){
+        alert("digite uma tarefa!");
+        return; //não deixa a tarefa vazia apareça na tela
+    }
+
+    tarefas.push(valortarefa); // adiciona a tarefa digitada dentro do array 
+    inputtarefa.value = "";
+
+    salvartarefas();
+    mostrartarefas();
+}
+
+// função para carregar tarefas salvas no localStorage
+function carregartrefas() {
+    // pega as tarefas e armazena na variavel   'tarefassalvas'
+    const tarefassalvas = localStorage.getItem("tarefas");
+    // se existir alguma coisa dentro de tarefas salvas
+    // então converte a tarefa e mostra na tela.
+    if(tarefassalvas){
+        //transforma o texto em array novamente
+        tarefas = JSON.parse(tarefassalvas);
+        mostrartarefas();
+    }
+}
+
+botaoadicicionar.addEventListener("click", adicionartarefas);
+carregartrefas();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // let listaTeste = ["Fernanda", "Guilherme", "Lucas"];
 

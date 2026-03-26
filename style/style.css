@@ -34,3 +34,20 @@ body{
 #titulo {
     text-align: center;
 }
+
+.botao-remover {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+li {
+     list-style: none; /* remove o estilo de lista(remove bolinhas) */
+     background-color: #EEEEEE;
+     padding: 10px;
+     border-radius: 10px;
+    margin-bottom: 10px;  /*margem na base do elemento*/
+
+    display: flex;
+    justify-content: space-between; /*coloca espaço entre os elementos*/
+}
